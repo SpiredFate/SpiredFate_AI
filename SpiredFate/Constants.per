@@ -3,6 +3,13 @@
 ;Created:  26MAY2021
 ;Updated:  27MAY2021
 
+(defrule
+	(true)
+=>
+	(chat-to-all "Constants.per loaded!")
+	(disable-self)
+)
+
 (defconst No 0)
 (defconst Yes 1)
 (defconst Build-Wall 20)
