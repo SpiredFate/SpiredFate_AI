@@ -1,4 +1,40 @@
 ;SpiredFate/Constants.per
 ;Scripter: David Kaulfers
 ;Created:  26MAY2021
-;Updated:  26MAY2021
+;Updated:  27MAY2021
+
+(defconst No 0)
+(defconst Yes 1)
+(defconst Build-Wall 20)
+(defconst Train-Army 21)
+(defconst Aggressive 22)
+(defconst Attack 23)
+(defconst canBombard 24)
+#load-if-defined DIFFICULTY-EASIEST
+(defrule
+  (true)
+ =>
+  (disable-self)
+)
+#
+#load-if-defined DIFFICULTY-MODERATE
+(defrule
+  (true)
+ =>
+  (disable-self)
+)
+#
+#load-if-defined DIFFICULTY-HARD
+(defrule
+  (true)
+ =>
+  (disable-self)
+)
+#
+#load-if-defined DIFFICULTY-HARDEST
+(defrule
+  (true)
+ =>
+  (disable-self)
+)
+#
