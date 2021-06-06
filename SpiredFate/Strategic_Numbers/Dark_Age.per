@@ -1,11 +1,37 @@
 ;SpiredFate/Strategic_Numbers/Dark_Age.per
 ;Scripter: David Kaulfers
 ;Created:  26MAY2021
-;Updated:  26MAY2021
+;Updated:  06JUN2021
 
 (defrule
 	(true)
 =>
 	(chat-local-to-self "SN_DarkAge.per loaded!")
+	(disable-self)
+)
+
+(defrule
+	(true)
+=>
+	(set-strategic-number sn-percent-civilian-builders 100)
+	(set-strategic-number sn-percent-civilian-gatherers 100)
+	(set-strategic-number sn-total-number-explorers 1)
+	(set-strategic-number sn-number-explore-groups 1)
+	(set-strategic-number sn-minimum-explore-group-size 1)
+	(set-strategic-number sn-maximum-explore-group-size 1)
+	(set-strategic-number sn-percentage-explore-exterminators 0)
+	(set-strategic-number sn-food-dropsite-distance 5)
+	(set-strategic-number sn-wood-dropsite-distance 5)
+	(set-strategic-number sn-gold-dropsite-distance 5)
+	(set-strategic-number sn-stone-dropsite-distance 5)
+	(set-strategic-number sn-maximum-wood-drop-distance 7)
+	(set-strategic-number sn-maximum-food-drop-distance 7)
+	(set-strategic-number sn-maximum-gold-drop-distance 7)
+	(set-strategic-number sn-maximum-stone-drop-distance 7)
+	(set-strategic-number sn-cap-civilian-explorers 0)
+	(set-strategic-number sn-maximum-gaia-attack-response 3)
+	(set-strategic-number sn-wood-gatherer-percentage 40)
+	(set-strategic-number sn-food-gatherer-percentage 60)
+	(set-strategic-number sn-camp-max-distance 30)
 	(disable-self)
 )
