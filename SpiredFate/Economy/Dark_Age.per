@@ -1,11 +1,33 @@
 ;SpiredFate/Economy/Dark_Age.per
 ;Scripter: David Kaulfers
 ;Created:  25MAY2021
-;Updated:  26MAY2021
+;Updated:  06JUN2021
 
 (defrule
 	(true)
 =>
 	(chat-local-to-self "ECO_DA.per loaded!")
 	(disable-self)
+)
+
+(defrule
+	(goal TrainVillager Yes)
+	(up-pending-objects	c: villager <= 1)
+	(unit-type-count-total villager < VillagerLimit)
+	(can-train villager)
+=>
+	(train villager)
+)
+
+(defrule
+	(goal BuildLumber Yes)
+	(can-build lumber-camp)
+	(resource-found wood)
+	(dropsite-min-distance wood > 5)
+	(building-type-count-total lumber-camp < 1)
+=>
+	;(up-modify-sn sn-camp-max-distance c: +3) ;prevents building lumber camps in some way
+	(set-strategic-number sn-allow-adjacent-dropsites 1)
+	(set-strategic-number sn-dropsite-separation-distance 2)
+	(build lumber-camp)
 )
