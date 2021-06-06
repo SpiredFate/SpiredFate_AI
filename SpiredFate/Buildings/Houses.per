@@ -1,11 +1,18 @@
 ;SpiredFate/Buildings/Houses.per
 ;Scripter: David Kaulfers
 ;Created:  25MAY2021
-;Updated:  26MAY2021
+;Updated:  06JUN2021
 
 (defrule
 	(true)
 =>
 	(chat-local-to-self "Houses.per loaded!")
 	(disable-self)
+)
+
+(defrule
+	(goal BuildHouses Yes)
+	(can-build house)
+=>
+	(build house)
 )
