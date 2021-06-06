@@ -1,11 +1,81 @@
 ;SpiredFate/Goals.per
 ;Scripter: David Kaulfers
 ;Created:  26MAY2021
-;Updated:  26MAY2021
+;Updated:  06JUN2021
 
 (defrule
 	(true)
 =>
 	(chat-local-to-self "Goals.per loaded!")
+	(set-goal TrainVillager No)
+	(set-goal BuildHouses No)
+	(set-goal Train-Army No)
+	(set-goal Build-Wall No)
+	(set-goal Attack No)
+	(set-goal canBombard No)
+	(set-goal BuildLumber No)
+	(set-goal BuildMining No)
+	(set-goal BuildMill No)
 	(disable-self)
 )
+
+(defrule
+	(population-headroom >= 5)
+	(housing-headroom < 5)
+=>
+	(set-goal BuildHouses Yes)
+)
+
+(defrule
+	(or
+	(population-headroom < 5)
+	(housing-headroom >= 5)
+	)
+=>
+	(set-goal BuildHouses No)
+)
+(defrule
+	(can-train villager)
+	(goal TrainVillager No)
+=>
+	(set-goal TrainVillager Yes)
+)
+(defrule
+	(building-type-count-total lumber-camp <= 2)
+	(goal BuildLumber No)
+	(can-build lumber-camp)
+=>
+	(set-goal BuildLumber Yes)
+)
+#load-if-defined DIFFICULTY-EASIEST
+(defrule
+	(true)
+=>
+	(set-goal VillagerLimit 25)
+	(disable-self)
+)
+#end-if
+#load-if-defined DIFFICULTY-MODERATE
+(defrule
+	(true)
+=>
+	(set-goal VillagerLimit 30)
+	(disable-self)
+)
+#end-if
+#load-if-defined DIFFICULTY-HARD
+(defrule
+	(true)
+=>
+	(set-goal VillagerLimit 40)
+	(disable-self)
+)
+#end-if
+#load-if-defined DIFFICULTY-HARDEST
+(defrule
+	(true)
+=>
+	(set-goal VillagerLimit 50)
+	(disable-self)
+)
+#end-if
